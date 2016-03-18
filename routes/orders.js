@@ -5,8 +5,9 @@ var restrict = require('../auth/restrict');
 router.get('/',restrict, function(req, res, next) {
     var vm = {
         title: 'Place an order' ,
+        orderId: req.session.orderId,
         firstName : req.user ? req.user.firstName : null
-    }
+    };
   res.render('orders/index', vm);
 });
 
